@@ -11,7 +11,7 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 // Modals
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-// import useLoginModal from "@/app/hooks/useLoginModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 // import useRentModal from "@/app/hooks/useRentModal";
 import { useRouter } from "next/navigation";
 
@@ -22,6 +22,7 @@ interface UserMenuProps {
 const UserMenu: FC<UserMenuProps> = ({}) => {
   const router = useRouter();
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -60,7 +61,7 @@ const UserMenu: FC<UserMenuProps> = ({}) => {
         <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
           <div className="flex flex-col cursor-pointer">
             <>
-              <MenuItem label="Login" onClick={() => {}} />
+              <MenuItem label="Login" onClick={loginModal.onOpen} />
               <MenuItem label="Sign up" onClick={registerModal.onOpen} />
             </>
             {/* 
