@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import Navbar from "./components/navbar/Navbar";
-import LoginModal from "./components/modals/LoginModal";
-import RegisterModal from "./components/modals/RegisterModal";
 import ClientOnly from "./components/ClientOnly";
+import RentModal from "./components/modals/RentModal";
+import LoginModal from "./components/modals/LoginModal";
 import ToasterProvider from "./providers/ToasterProvider";
+import RegisterModal from "./components/modals/RegisterModal";
 
 import { getCurrentUser } from "./actions/getCurrentUser";
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <LoginModal />
           <RegisterModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         {children}

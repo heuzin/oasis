@@ -1,25 +1,27 @@
 "use client";
 
-import { AiFillGithub } from "react-icons/ai";
-import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
-import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
+import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
+import { AiFillGithub } from "react-icons/ai";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 import Modal from "./Modal";
-import Input from "../inputs/Input";
-import Heading from "../Heading";
 import Button from "../Button";
+import Heading from "../Heading";
+import Input from "../inputs/Input";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -55,8 +57,8 @@ const LoginModal = () => {
   };
 
   const onToggle = useCallback(() => {
-    registerModal.onClose();
-    loginModal.onOpen();
+    loginModal.onClose();
+    registerModal.onOpen();
   }, [registerModal, loginModal]);
 
   const bodyContent = (
@@ -99,13 +101,13 @@ const LoginModal = () => {
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <p>
-          Already have an account?
+          Fist time using Oasis?
           <span
             onClick={onToggle}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
             {" "}
-            Log in
+            Create an account
           </span>
         </p>
       </div>
