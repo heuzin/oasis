@@ -1,7 +1,7 @@
 "use client";
 
-import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
@@ -17,6 +17,7 @@ import Heading from "../Heading";
 import Button from "../Button";
 
 const LoginModal = () => {
+  const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +38,19 @@ const LoginModal = () => {
 
     signIn("credentials", {
       ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success("Logged in");
+        router.refresh();
+        loginModal.onClose();
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
     });
   };
 
