@@ -33,11 +33,9 @@ const Input: React.FC<InputProps> = ({
         />
       )}
       <label
-        className={`
-                 text-lg font-semibold ${
-                   errors[id] ? "text-rose-500" : "text-zinc-500"
-                 }
-            `}
+        className={`text-lg font-semibold ${
+          errors[id] ? "text-rose-500" : "text-zinc-500"
+        }`}
       >
         {label}
       </label>
@@ -47,15 +45,13 @@ const Input: React.FC<InputProps> = ({
         disabled={disabled}
         {...register(id, { required })}
         placeholder=""
-        className={`
-                    peer w-full p-4 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${
-                      formatPrice ? "pl-9" : "pl-4"
-                    } ${
+        className={`peer w-full p-4 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${
+          formatPrice ? "pl-9" : "pl-4"
+        } ${
           errors[id]
             ? "border-rose-500 focus:border-rose-500"
             : "border-neutral-300 focus:border-neutral-700"
-        }
-                `}
+        }`}
       />
     </div>
   );
