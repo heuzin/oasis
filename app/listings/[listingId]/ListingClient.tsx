@@ -26,7 +26,10 @@ const initialDateRange = {
 interface ListingClientProps {
   listing: Listing & { user: User };
   currentUser: User | null;
-  reservations?: Reservation[];
+  reservations: Reservation[] &
+    {
+      listing: Listing;
+    }[];
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
