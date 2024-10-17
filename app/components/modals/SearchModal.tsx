@@ -42,6 +42,7 @@ const SearchModal = () => {
       dynamic(() => import("../Map"), {
         ssr: false,
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location]
   );
 
@@ -64,6 +65,7 @@ const SearchModal = () => {
       currentQuery = queryString.parse(params.toString());
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updatedQuery: any = {
       ...currentQuery,
       locationValue: location?.value,

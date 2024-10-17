@@ -39,6 +39,7 @@ export const getReservations = async (params: IParams) => {
     });
 
     return reservations;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     throw new Error(error);
   }

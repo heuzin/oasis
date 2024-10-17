@@ -1,11 +1,12 @@
 import { Prisma } from "@prisma/client";
 
-const reservationsWithListings =
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const reservationsWithListingsType =
   Prisma.validator<Prisma.ReservationDefaultArgs>()({
     include: {
       listing: true,
     },
   });
 export type ReservationsWithListings = Prisma.ReservationGetPayload<
-  typeof reservationsWithListings
+  typeof reservationsWithListingsType
 >;

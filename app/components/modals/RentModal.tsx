@@ -69,6 +69,7 @@ const RentModal = () => {
       dynamic(() => import("../Map"), {
         ssr: false,
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location]
   );
 
@@ -103,7 +104,7 @@ const RentModal = () => {
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY);
-        rentModal.onClose;
+        rentModal.onClose();
       })
       .catch(() => {
         toast.error("Something went wrong.");

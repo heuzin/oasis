@@ -14,6 +14,7 @@ export interface IListingParams {
 export const getListings = async (params: IListingParams) => {
   console.log(params);
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, prefer-const
     let query: any = {};
 
     if (params?.userId) {
@@ -65,7 +66,7 @@ export const getListings = async (params: IListingParams) => {
       };
     }
 
-    const listings = await prisma.listing.findMany({
+    const listings = await db.listing.findMany({
       where: query,
       orderBy: {
         createdAt: "desc",
@@ -73,6 +74,7 @@ export const getListings = async (params: IListingParams) => {
     });
 
     return listings;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     throw new Error(error);
   }
