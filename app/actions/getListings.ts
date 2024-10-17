@@ -12,7 +12,6 @@ export interface IListingParams {
 }
 
 export const getListings = async (params: IListingParams) => {
-  console.log(params);
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, prefer-const
     let query: any = {};

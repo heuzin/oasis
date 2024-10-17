@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Listing } from "@prisma/client";
 
 import Container from "./components/Container";
