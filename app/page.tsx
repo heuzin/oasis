@@ -9,11 +9,12 @@ import { getListings, IListingParams } from "./actions/getListings";
 import { getCurrentUser } from "./actions/getCurrentUser";
 
 interface HomeProps {
-  serachParams: IListingParams;
+  searchParams: IListingParams;
 }
 
-const Home = async ({ serachParams }: HomeProps) => {
-  const listings = await getListings(serachParams);
+const Home = async ({ searchParams }: HomeProps) => {
+  console.log(searchParams);
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {

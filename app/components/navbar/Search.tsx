@@ -1,29 +1,29 @@
 "use client";
-// import useCountries from "@/app/hooks/useCountries";
-// import useSearchModal from "@/app/hooks/useSearchModal";
-import { differenceInDays } from "date-fns";
-import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
-// React icons
 import { BiSearch } from "react-icons/bi";
+import { useMemo } from "react";
+import { differenceInDays } from "date-fns";
+
+import useCountries from "@/app/hooks/useCountries";
+import useSearchModal from "@/app/hooks/useSearchModal";
+import { useSearchParams } from "next/navigation";
 
 const Search = () => {
-  //   const searchModal = useSearchModal();
+  const searchModal = useSearchModal();
   const params = useSearchParams();
-  //   const { getByValue } = useCountries();
+  const { getByValue } = useCountries();
 
-  //   const locationValue = params?.get("locationValue");
+  const locationValue = params?.get("locationValue");
   const startDate = params?.get("startDate");
   const endDate = params?.get("endDate");
   const guestCount = params?.get("guestCount");
 
-  //   const locationLabel = useMemo(() => {
-  //     if (locationValue) {
-  //       return getByValue(locationValue as string)?.label;
-  //     }
+  const locationLabel = useMemo(() => {
+    if (locationValue) {
+      return getByValue(locationValue as string)?.label;
+    }
 
-  //     return "Anywhere";
-  //   }, [getByValue, locationValue]);
+    return "Anywhere";
+  }, [getByValue, locationValue]);
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {
@@ -51,11 +51,11 @@ const Search = () => {
 
   return (
     <div
-      //   onClick={searchModal.onOpen}
+      onClick={searchModal.onOpen}
       className=" border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer"
     >
       <div className="flex flex-row items-center justify-between">
-        {/* <div className="text-sm font-semibold px-6">{locationLabel}</div> */}
+        <div className="text-sm font-semibold px-6">{locationLabel}</div>
         <div className="hidden sm:block text-sm font-semibold px-6 border-l-[1px] flex-1 text-center">
           {durationLabel}
         </div>
