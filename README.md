@@ -24,7 +24,7 @@ $ npm install # or yarn
 Run it
 
 ```bash
-$ npm start
+$ npm run dev
 ```
 
 ## Features
