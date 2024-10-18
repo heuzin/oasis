@@ -11,7 +11,7 @@ Check the demo hosted on https://oasis-sand.vercel.app/.
 First clone this repository.
 
 ```bash
-$ git clone https://github.com/heuzin/github-finder.git
+$ git clone https://github.com/heuzin/oasis.git
 ```
 
 Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/) & [`npm`](https://www.npmjs.com/)
